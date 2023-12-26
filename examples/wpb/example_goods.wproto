@@ -1,0 +1,21 @@
+
+// generate by wctl xlsx. DO NOT EDIT.
+package wpb;
+
+// example_goods generate from example_goods_cfgs in data/Examples.xlsx
+message example_goods
+{ 
+    // GoodsID 物品ID
+	uint32 goods_id = 1; 
+    // GoodsType 物品类型
+	int32 goods_type = 2; 
+    // DiamondPrice 出售钻石价格
+	int64 diamond_price = 3; 
+    // GoldPrice 出售金币价格
+	int64 gold_price = 4; 
+}
+// example_goods generate from example_goods_cfgs in data/Examples.xlsx
+message example_goods_container
+{	
+	repeated example_goods data = 1; // table 
+}

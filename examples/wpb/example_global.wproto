@@ -1,0 +1,14 @@
+
+// generate by wctl xlsx. DO NOT EDIT.
+package wpb;
+
+// example_global generate from example_global_st in data/Examples.xlsx
+message example_global
+{ 
+    // register_limit 注册限制
+	int32 register_limit = 1; 
+    // friend_limit 好友限制
+	int32 friend_limit = 2; 
+    // register_gold 注册赠送
+	int64 register_gold = 3; 
+}
