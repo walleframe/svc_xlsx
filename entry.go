@@ -9,17 +9,11 @@ import (
 )
 
 var (
-	registry = pluginRegistry{
-		plugins: make(map[string]xlsxmgr.XlsxLoadPlugin),
-	}
 	XlsxMgr = xlsxmgr.NewXlsxConfigManager()
 )
 
-// RegisterXlsxPlugin register xlsx plugin to load data
-var RegisterXlsxPlugin func(plugin xlsxmgr.XlsxLoadPlugin) = registry.RegisterXlsxPlugin
-
 // RegAutoConfig 注册自动加载配置
-var RegAutoConfig func(basename, fromXlsx, fromSheet string, parser xlsxmgr.DataParser, loader xlsxmgr.ConfigLoader) = XlsxMgr.RegAutoConfig
+var RegAutoConfig func(basename string, fromXlsx string, fromSheet string, parser xlsxmgr.DataParser, loader xlsxmgr.ConfigLoader) = XlsxMgr.RegAutoConfig
 
 // RegAppendConfig 追加数据解析
 var RegAppendConfig func(basename, tag string, loader xlsxmgr.ConfigAppendLoader) = XlsxMgr.RegAppendConfig
@@ -29,8 +23,8 @@ var RegMixConfig func(tag string, mix func() error, basename ...string) = XlsxMg
 
 func init() {
 	// register default plugin
-	RegisterXlsxPlugin(simple.XlsxPlugin)
-	RegisterXlsxPlugin(local.XlsxPlugin)
+	xlsxmgr.RegisterXlsxPlugin(simple.XlsxPlugin)
+	xlsxmgr.RegisterXlsxPlugin(local.XlsxPlugin)
 
 	svc := NewService(XlsxMgr)
 	// regitster plugin type config.

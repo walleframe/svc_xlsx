@@ -28,7 +28,7 @@ func (svc *ExcelConfigService) Name() string {
 
 func (svc *ExcelConfigService) Init(s app.Stoper) (err error) {
 	// 根据配置决定加载插件
-	plugin, err := registry.GetPlugin(svc.cfgName)
+	plugin, err := xlsxmgr.GetPlugin(svc.cfgName)
 	if err != nil {
 		return err
 	}
