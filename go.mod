@@ -3,7 +3,7 @@ module github.com/walleframe/svc_xlsx
 go 1.18
 
 require (
-	github.com/walleframe/walle v0.0.0-20231226080538-acc7d947cf81
+	github.com/walleframe/walle v0.0.1
 	go.uber.org/zap v1.26.0
 )
 
